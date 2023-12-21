@@ -59,9 +59,11 @@ public class DiaryPostsController {
     @GetMapping("/posts")
     public String getPosts(Model model) {
 
-        model.addAttribute("posts", diaryPostsRepository.datenothappened()); // Här använder jag mig av en metod som
-                                                                             // endast visar dagens samt äldre datums
-                                                                             // inlägg
+        model.addAttribute("posts", diaryPostsRepository.orderByAndDateNotHappened()); // Här använder jag mig av en
+                                                                                       // metod som
+                                                                                       // endast visar dagens samt äldre
+                                                                                       // datums
+                                                                                       // inlägg
         return "posts";
     }
 
@@ -110,7 +112,7 @@ public class DiaryPostsController {
     public String search(@RequestParam("date1") LocalDate startDate, @RequestParam("date2") LocalDate endDate,
             Model model) {
 
-        List<DiaryPosts> postsBetweenDates = diaryPostsRepository.datebetween(startDate, endDate);
+        List<DiaryPosts> postsBetweenDates = diaryPostsRepository.orderByAnddatebetween(startDate, endDate);
 
         model.addAttribute("posts", postsBetweenDates);
         model.addAttribute("startDate", startDate);
