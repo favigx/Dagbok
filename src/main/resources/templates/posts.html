@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xlmns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alla inlägg</title>
+    
+    <link rel="stylesheet" href="headStyle.css">
+    <link rel="stylesheet" href="backgroundStyle.css">
+    <link rel="stylesheet" href="homeStyle.css">
+    <link rel="stylesheet" href="flashmessages.css">
+    <link rel="stylesheet" href="viewpostStyle.css">
+    
+</head>
+<body>
+    <div>
+        <p class="links"><a id="allPostsLink" href="/posts">Se alla inlägg</a>
+            <a id="searchLink" href="/search">Sök inlägg</a>
+            <a id="addPostLink" href="/addpost">Skapa nytt inlägg</a>
+            <a id="homeLink" href="/">Hem</a></p>
+    </div>
+
+    <div class="header">
+        <div class="text">
+            <p class="deleteMsg" th:text="${deleteMsg}"></p>
+            <p class="editMsg" th:text="${editMsg}"></p>
+            <p class="editerrorMsg" th:text="${editerrorMsg}"></p>
+            <h1 id="text">Alla inlägg</h1>
+            Här kan du läsa, redigera samt radera inlägg
+            
+        </div>
+    </div> 
+
+    <div class="post">
+        <ul>
+            <li class="List" th:each="post : ${posts}">
+                <a th:href="@{post/{id}(id=${post.id})}">
+                     <span th:text="'Titel: ' + ${post.heading} + ' | Publicerad: ' + ${post.date}"></span>
+                     <div>
+                        <a th:href="@{delete(id=${post.id})}">
+                            <button id="removeBtn" onclick="removeAlert()">Ta bort</button>
+                            <a th:href="@{edit/{id}(id=${post.id})}"><button id="removeBtn">Redigera inlägg</button>
+                     </div>       
+            </li>
+        </ul>
+    </div> 
+    
+</body>
+</html>

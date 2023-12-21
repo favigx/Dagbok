@@ -1,0 +1,31 @@
+a{
+    margin-right: 30px; 
+}
+
+.links{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight:500;
+    color:rgb(98, 112, 48);
+    text-align: center;
+}
+ a:link {
+    text-decoration: none;
+}
+
+#allPostsLink{
+    border-left: 1px solid black;
+    padding-left: 2rem;
+}
+#searchLink{
+    border-left: 1px solid black;
+    padding-left: 2rem;
+}
+#addPostLink{
+    border-left: 1px solid black;
+    padding-left: 2rem;
+}
+#homeLink{
+    border-left: 1px solid black;
+    padding-left: 2rem;
+}

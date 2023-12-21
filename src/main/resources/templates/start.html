@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xlmns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagboken</title>
+    
+    <link rel="stylesheet" href="headStyle.css">
+    <link rel="stylesheet" href="backgroundStyle.css">
+    <link rel="stylesheet" href="flashmessages.css">
+    <link rel="stylesheet" href="viewpostStyle.css">
+
+    <script src="homeScript.js" defer></script> 
+    <script src="post.js" defer></script> 
+    
+</head>
+<body>
+    <div>
+        <p class="links"><a id="allPostsLink" href="/posts">Se alla inlägg</a>
+            <a id="searchLink" href="/search">Sök inlägg</a>
+            <a id="addPostLink" href="/addpost">Skapa nytt inlägg</a>
+            <a id="homeLink" href="/">Hem</a></p>
+    </div>
+
+    <div class="header">
+        <div class="text">
+            <p class="sucessMsg" th:text="${posted}"></p>
+            <h1 id="text">Dagens inlägg</h1>
+            <h3 id="currentDate"></h3>
+        </div>
+    </div> 
+
+        <div class="post">
+            <ul>
+                <li class="List" th:each="post : ${posts}">
+                        <h1><span th:text="${post.heading}"></span></h1><br/><br/>
+                        <h3 id="maintxt" style="white-space: pre-line; text-align: left;" th:text="${post.mainText}"></h3><br/><br/>
+                        --------------------------------------------------------------------------------------------
+                        ----------------------------------------------------------------------------------------
+                </li>
+            </ul>
+        </div> 
+</body>
+</html>

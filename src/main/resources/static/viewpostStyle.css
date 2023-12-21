@@ -1,0 +1,19 @@
+#textarea{
+    resize: none;
+    width: 700px;
+    height: 800px;
+    font-size:medium;
+    font-weight:400;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(220, 235, 179);
+}
+
+#maintxt{
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+.List{
+    text-align: center;
+    list-style-type: none;
+}

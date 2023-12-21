@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xlmns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sök inlägg</title>
+
+    <link rel="stylesheet" href="headStyle.css">
+    <link rel="stylesheet" href="backgroundStyle.css">
+    <link rel="stylesheet" href="viewpostStyle.css">
+    <link rel="stylesheet" href="searchStyle.css">
+
+    <script src="post.js" defer></script> 
+    
+</head>
+<body>
+    <div>
+        <p class="links"><a id="allPostsLink" href="/posts">Se alla inlägg</a>
+            <a id="searchLink" href="/search">Sök inlägg</a>
+            <a id="addPostLink" href="/addpost">Skapa nytt inlägg</a>
+            <a id="homeLink" href="/">Hem</a></p>
+    </div>
+    <div class="header">
+        <div class="text">
+            <h1 id="text">Sök inlägg</h1>
+            mellan två datum
+            <form method="post" th:action="@{/search-date}">
+                <input id="date1" type="date" name="date1" required>-<input id="date2" type="date" name="date2" required><br/><br/>
+                <button id="searchBtn">Sök</button>
+            </form>
+            <p id="showDate">Visar inlägg mellan <span th:text="${startDate}"></span>
+                och <span th:text="${endDate}"></span></p>
+        </div>
+    </div> 
+
+         <div class="List">
+            <ul>
+                <li class="List" th:each="post : ${posts}">
+                    <a th:href="@{post/{id}(id=${post.id})}">
+                        <span th:text="'Titel: ' + ${post.heading} + ' | Publicerad: ' + ${post.date}"></span>
+                         <div>
+                            <a th:href="@{delete(id=${post.id})}">
+                                <button id="removeBtn" onclick="removeAlert()">Ta bort</button>
+                                <a th:href="@{edit/{id}(id=${post.id})}"><button id="removeBtn">Redigera inlägg</button>
+                         </div>       
+                </li>
+            </ul>
+        </div> 
+</body>
+</html>

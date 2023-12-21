@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xlmns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redigera inlägg</title>
+
+    <link rel="stylesheet" href="/headStyle.css">
+    <link rel="stylesheet" href="/backgroundStyle.css">
+    <link rel="stylesheet" href="/homeStyle.css">
+    <link rel="stylesheet" href="/viewpostStyle.css">
+
+</head>
+<body>
+
+    <div>
+        <p class="links"><a id="allPostsLink" href="/posts">Se alla inlägg</a>
+            <a id="searchLink" href="/search">Sök inlägg</a>
+            <a id="addPostLink" href="/addpost">Skapa nytt inlägg</a>
+            <a id="homeLink" href="/">Hem</a></p>
+    </div>
+
+    <div class="header">
+        <div class="text">
+            <h1 id="text">Redigera inlägg</h1>
+            <form method="post" th:action="@{/edit}">
+                <input type="hidden" name="id" th:value="${post.id}">
+                Publiceringsdatum<br/><br/>
+                <input type="date" th:value="${post.getDate}" name="date"><br/><br/>
+                Titel<br/><br/>
+                <input type="text" th:value="${post.getHeading}" name="heading"><br/><br/>
+                Skriv ditt inlägg<br/><br/>
+                <textarea id="textarea" th:text="${post.getMainText}"  name="mainText"></textarea><br/><br/>
+                <button>Spara ändringar</button>
+            </form>
+        </div>
+    </div> 
+   
+    <div class="header">
+       
+    </div>
+    
+</body>
+</html>
