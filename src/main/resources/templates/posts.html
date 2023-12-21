@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alla inlägg</title>
-    
+
     <link rel="stylesheet" href="headStyle.css">
     <link rel="stylesheet" href="backgroundStyle.css">
     <link rel="stylesheet" href="homeStyle.css">
@@ -38,12 +38,11 @@
                      <span th:text="'Titel: ' + ${post.heading} + ' | Publicerad: ' + ${post.date}"></span>
                      <div>
                         <a th:href="@{delete(id=${post.id})}">
-                            <button id="removeBtn" onclick="removeAlert()">Ta bort</button>
-                            <a th:href="@{edit/{id}(id=${post.id})}"><button id="removeBtn">Redigera inlägg</button>
+                            <button>Ta bort</button>
+                            <a th:href="@{edit/{id}(id=${post.id})}"><button>Redigera inlägg</button>
                      </div>       
             </li>
         </ul>
     </div> 
-    
 </body>
 </html>

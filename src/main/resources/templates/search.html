@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="backgroundStyle.css">
     <link rel="stylesheet" href="viewpostStyle.css">
     <link rel="stylesheet" href="searchStyle.css">
-
-    <script src="post.js" defer></script> 
     
 </head>
 <body>
@@ -40,8 +38,8 @@
                         <span th:text="'Titel: ' + ${post.heading} + ' | Publicerad: ' + ${post.date}"></span>
                          <div>
                             <a th:href="@{delete(id=${post.id})}">
-                                <button id="removeBtn" onclick="removeAlert()">Ta bort</button>
-                                <a th:href="@{edit/{id}(id=${post.id})}"><button id="removeBtn">Redigera inlägg</button>
+                                <button>Ta bort</button>
+                                <a th:href="@{edit/{id}(id=${post.id})}"><button>Redigera inlägg</button>
                          </div>       
                 </li>
             </ul>
